@@ -1,0 +1,17 @@
+{
+  "name": "openlamp-engine",
+  "version": "0.1.0-draft",
+  "private": true,
+  "description": "OpenLamp engine — Node.js port of engine.py (Tuya + WLED local lamp control, OLS dispatcher, local API on 127.0.0.1:8377)",
+  "main": "engine.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node engine.js",
+    "test": "node test-mock.js"
+  },
+  "dependencies": {
+    "tuyapi": "^7.7.1"
+  }
+}
