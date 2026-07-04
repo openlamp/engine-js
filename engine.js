@@ -344,7 +344,7 @@ class TuyaLamp extends BaseLamp {
     d.on('error', (e) => log(this.name, 'device error:', e && e.message || e));
     d.on('disconnected', () => { if (this.dev === d) this.ok = false; });
     await withTimeout(d.connect(), 5000, 'connect');
-    const st = await withTimeout(d.get({ schema: true }), 5000, 'status');
+    const st = await withTimeout(d.get({}), 5000, 'status');
     const dps = (st && typeof st === 'object' && st.dps) ? st.dps : {};
     if (!dps || !Object.keys(dps).length) {
       try { d.disconnect(); } catch (e) { /* ignore */ }
@@ -493,7 +493,7 @@ class TuyaLamp extends BaseLamp {
   async _status() {
     // With acked sends (tuyapi shouldWaitForResponse) the ack buffer doesn't
     // pile up like tinytuya nowait mode did — a single fresh read suffices.
-    const st = await withTimeout(this.dev.get({ schema: true }), 5000, 'status');
+    const st = await withTimeout(this.dev.get({}), 5000, 'status');
     return (st && typeof st === 'object' && st.dps) ? st.dps : {};
   }
 

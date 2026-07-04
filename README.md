@@ -14,8 +14,11 @@ which engine is serving them — the two are interchangeable behind the API.
 ## Status
 
 - ✅ Offline-validated: 25 assertions on mocked devices (`npm test`).
-- ☐ Real-lamp validation pending (protocol 3.5 session negotiation through tuyapi
-  is the remaining gate — see Open questions in the code).
+- ✅ Live-validated on real Tuya lamps (2026-07-04): protocol 3.5 session
+  negotiation, connect + rainbow greet + sync writes, color commands acked
+  (`ok:true`), auto-deauth integration — both lamps held concurrently.
+- ◐ One fix pending live confirmation: state readback now uses a plain DPS query
+  (`get({})`) — `get({schema:true})` made the 3.5 firmware drop the session.
 
 ## Run
 
