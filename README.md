@@ -29,8 +29,7 @@ npm test              # offline mock test (port 18377)
 ```
 
 **One host at a time**: never run this alongside the Python engine host (Stream
-Deck plugin or daemon.py) — each Tuya lamp accepts a single local connection and
-every host binds port 8377.
+Deck plugin or daemon.py) — every host binds port 8377 (and Tuya lamps additionally accept only one local connection).
 
 Part of the [OpenLamp](https://github.com/openlamp/openlamp) family. Made by
 **BenLab** with the help of Claude.
